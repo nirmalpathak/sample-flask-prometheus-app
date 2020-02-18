@@ -1,5 +1,3 @@
-#from  os import environ
-#from socket import gethostname
 import os
 import time
 
@@ -26,11 +24,10 @@ REQUEST_LATENCY = Histogram('http_request_duration_seconds', 'HTTP request laten
 
 def hello():
     VER = os.environ.get('VERSION')
-    #HOST = gethostname()
     HOST = os.uname()[1]
-    REQUEST_COUNT.labels(method='GET', endpoint="/", status_code=200).inc()  # Increment the counter
+    REQUEST_COUNT.labels(method='GET', endpoint="/", status_code=200).inc()  # Incrementing the counter
     if VER and HOST is not None:
-        return "Hello World! From Host: "+ HOST + "    Version: " + VER + "\n"
+        return "Hello World! Running on Host: " + HOST + " Version: " + VER + "\n"
     else:
         return "Hello World!"
 
@@ -42,4 +39,4 @@ def metrics():
     return generate_latest(REGISTRY)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
