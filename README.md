@@ -8,6 +8,8 @@ This is a sample application written in Python Flask with the Python Prometheus 
 
 ## Build the container
 
+This project has `Dockerfile` to build the docker container.
+
 ```console
 $ docker build -t sample-flask-prometheus-app .
 ```
