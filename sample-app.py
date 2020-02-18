@@ -9,7 +9,7 @@ app = Flask(__name__)
 # A counter to count the total number of HTTP requests.
 REQUEST_COUNT = Counter('http_requests_total', 'Total Number HTTP Requests', ['method', 'endpoint', 'status_code'])
 
-# A gauge to monitor the total number of in progress requests.
+# A gauge to monitor the total number of requests in-progress.
 IN_PROGRESS = Gauge('http_requests_inprogress', 'Number of in progress HTTP requests')
 
 # A histogram to measure the HTTP requests' latency.
