@@ -1,2 +1,3 @@
 # Test case cache dir.
 __pycache__/
+.coverage
