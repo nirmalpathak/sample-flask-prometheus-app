@@ -1,5 +1,5 @@
 # test_sample_app.py
-from sample import app
+from sample_app import app
 
 def test_hello():
     response = app.test_client().get('/')
