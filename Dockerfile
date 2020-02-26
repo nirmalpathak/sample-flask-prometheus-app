@@ -2,11 +2,11 @@ FROM python:3.7-alpine
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY sample_app.py test_smaple_app.py requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt && py.test
 
-COPY . .
+#COPY sample_app.py .
 
 EXPOSE 5000
 
-CMD [ "python", "./sample-app.py" ]
+CMD [ "python", "./sample_app.py" ]
