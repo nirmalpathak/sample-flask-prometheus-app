@@ -2,7 +2,7 @@ FROM python:3.7-alpine
 
 WORKDIR /usr/src/app
 
-COPY sample_app.py test_smaple_app.py requirements.txt ./
+COPY sample_app.py test_sample_app.py requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt && pytest --cov=sample_app
 
 #COPY sample_app.py .
