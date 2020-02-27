@@ -32,7 +32,7 @@ def hello():
     if VER and HOST is not None:
         return "Hello World! Running on Host: " + HOST + " Version: " + VER + "\n"
     else:
-        return "Hello World!"
+        return "Hello World! \n"
 
 @app.route('/metrics')
 @IN_PROGRESS.track_inprogress()
