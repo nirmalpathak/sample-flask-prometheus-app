@@ -26,12 +26,12 @@ pipeline {
       }
       stage('Deploy') {
          steps {
-            sh 'microk8s.kubectl run --generator=run-pod/v1 my-flask-app --image=nirmalpathak/sample-flask-prometheus-app'
+	    sh 'sed "s/v0.0.1/v0.${BUILD_NUMBER}/" my-flask-app.yaml |microk8s.kubectl apply -f-'
          }
       }
         stage('Status') {
          steps {
-            sh 'sleep 30; microk8s.kubectl get pods'
+            sh 'sleep 5; microk8s.kubectl get all -l app=my-flask-app'
          }
       }
    }
