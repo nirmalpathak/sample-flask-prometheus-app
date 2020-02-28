@@ -31,7 +31,7 @@ pipeline {
       }
         stage('Status') {
          steps {
-            sh 'sleep 5; microk8s.kubectl get all -l app=my-flask-app'
+            sh 'microk8s.kubectl wait --for=condition=available --timeout=60s deployment.apps/my-flask-app'
          }
       }
    }
