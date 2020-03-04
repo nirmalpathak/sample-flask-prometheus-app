@@ -24,8 +24,13 @@ spec:
   selector:
     matchLabels:
       app: my-flask-app
+      #  strategy:
+      #type: Recreate
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2        # How many pods to add at a time
+      maxUnavailable: 0  # How many pods can be unavailable during the rolling update
   selector:
     matchLabels:
       app: my-flask-app
