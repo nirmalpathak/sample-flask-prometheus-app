@@ -14,6 +14,10 @@ def test_hello():
     else:
         STRING = "Hello World! Running on Host: " + HOST + " Version: " + VER + "\n"
 
-
     assert response.status_code == 200
     assert response.data.decode() == STRING
+
+def test_metrics():
+    response = app.test_client().get('/metrics')
+
+    assert response.status_code == 200
